@@ -21,29 +21,43 @@
 
 
     <script>
-        // $(function(){
-        //     var el = $("<div>");
-        //     el.addClass('alert rounded-0')
-        //     if('<? //= !empty($this->session->flashdata('success')) 
-                    ?>' == 1){
-        //         var msg = el.clone()
-        //         msg.addClass('alert-success')
-        //         msg.html('<? //= $this->session->flashdata('success') 
-                                ?>')
+        $(document).ready(function() {
+            $("#fetchpurok").on('change', function() {
+                var value = $(this).val();
+                // alert(value);
 
-        //         $('#content>.container-fluid').prepend(msg)
-        //     }
-        //     if('<? //= !empty($this->session->flashdata('error')) 
-                    ?>' == 1){
-        //         var msg = el.clone()
-        //         msg.addClass('alert-danger')
-        //         msg.html('<? //= $this->session->flashdata('error') 
-                                ?>')
+                $.ajax({
+                    method: "GET", // GET, POST, PUT, DELETE, PATCH
+                    url: "http://localhost/brmsv2/residentcontroller/selectHH",
+                    data: {
+                        'puroknumber': value,
+                    },
+                    success: function(response) {
 
-        //         $('#content>.container-fluid').prepend(msg)
-        //     }
-        // })
+                        var select = $("#selecthouse")
+
+                        if (response) {
+                            $("#selecthouse").empty()
+                            response.forEach((household) => {
+                                var option = $("<option></option>")
+                                option.text(`${household.household_desc}`)
+                                // option.text(`${household.lname} ${household.fname} ${"Household"}`) // concat 
+                                option.val(household.household_id) // val
+
+                                // <option value="2">This is the text</option>
+
+                                select.append(option) // append
+                            })
+                        }
+                    }
+                });
+
+            });
+        });
     </script>
+
+
+
     </body>
 
     </html>

@@ -1,6 +1,12 @@
 <body id="page-top">
     <style type="text/css">
+        #nav-item {
+            padding-left: 10px;
+
+        }
+
         #nav-item:hover {
+            padding-left: 20px;
             background-color: #023e8a;
             transition: 0.5s;
         }
@@ -29,7 +35,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?= (current_url() == base_url('dashboardcontroller/dashboard')) ? 'active' : ''; ?>" id="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url(); ?>dashboardcontroller/dashboard">
                     <i class="fa-solid fa-chart-line"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -47,7 +53,7 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item <?= (current_url() == base_url('residentcontroller/viewresident')) ? 'active' : ''; ?>" id="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>residentcontroller/viewresident">
+                <a class="nav-link" href="<?= base_url(); ?>residentcontroller/resident">
                     <i class="fa-solid fa-users"></i>
                     <span>Residents</span></a>
             </li>
@@ -238,6 +244,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -245,8 +252,8 @@
                             <div class="modal-body mx-3 mb-4">Are you sure you're going out?</div>
                             <div class="modal-footer">
                                 <div class="text-center">
-                                    <a class="flex-fill btn btn-danger p-2 rounded-0" href="<?php echo base_url() . 'welcome/logout' ?>">Logout</a>
                                     <button class="flex-fill btn btn-secondary p-2 rounded-0" type="button" data-dismiss="modal">Cancel</button>
+                                    <a class="flex-fill btn btn-danger p-2 rounded-0" href="<?php echo base_url() . 'welcome/logout' ?>">Logout</a>
                                 </div>
                             </div>
                         </div>

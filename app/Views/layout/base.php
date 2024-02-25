@@ -4,6 +4,7 @@
 
 <?= $this->renderSection("content"); ?>
 
-<?= $this->include("layout/footer"); ?>
+<!-- <? //= $this->include("layout/footer"); 
+        ?> -->
 
 <?= $this->include("layout/source"); ?>

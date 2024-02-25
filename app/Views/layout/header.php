@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="<?php echo base_url() ?>public/assets/img/logo.jpg" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="<?php //echo base_url() 
+                                            ?>public/assets/img/logo.jpg" type="image/x-icon"> -->
 
-    <title>Laundry Management System | CodeIgniter Project</title>
+    <title> <?= (isset($pageTitle)) ? $pageTitle : ''; ?> Barangay Raw-an Management System</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() . 'assets/css/style.css' ?>" rel="stylesheet">
