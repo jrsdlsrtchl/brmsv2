@@ -54,7 +54,7 @@ class HouseholdController extends Controller
         $data['pageTitle'] = 'Household -';
         $data['head'] = $this->houseModel->getHeadName($id);
         $data['membersHH'] = $this->houseModel->getMembersHH($id);
-
+        
         return view("household/household_view", $data);
     }
 
