@@ -1,6 +1,12 @@
     <!-- Custom made script for this project-->
     <script src="<?php echo base_url() . 'assets/js/script.js' ?>"></script>
 
+    <!-- Preload -->
+    <script src="<?= base_url() . 'public/vendors/scripts/core.js' ?>"></script>
+    <script src="<?= base_url() . 'public/vendors/scripts/script.min.js' ?>"></script>
+    <script src="<?= base_url() . 'public/vendors/scripts/process.js' ?>"></script>
+    <script src="<?= base_url() . 'public/vendors/scripts/layout-settings.js' ?>"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url() . 'assets/vendor/jquery/jquery.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
@@ -17,8 +23,6 @@
 
     <!-- Page level custom scripts for Tables-->
     <script src="<?php echo base_url() . 'assets/js/demo/datatables-demo.js' ?>"></script>
-
-
 
     <script>
         $(document).ready(function() {

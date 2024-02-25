@@ -12,6 +12,8 @@ $page_session = \CodeIgniter\Config\Services::session();
     }, 3000);
 </script>
 
+<div id="preloader"></div>
+
 <div class="container-fluid">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">

@@ -52,7 +52,7 @@
 
             <hr class="sidebar-divider my-0">
 
-            <li class="nav-item <?= (current_url() == base_url('residentcontroller/viewresident')) ? 'active' : ''; ?>" id="nav-item">
+            <li class="nav-item <?= (current_url() == base_url('residentcontroller/resident')) ? 'active' : ''; ?>" id="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>residentcontroller/resident">
                     <i class="fa-solid fa-users"></i>
                     <span>Residents</span></a>
@@ -194,7 +194,7 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="<?= base_url() . 'residentcontroller/resident' ?>" id="" role="button">
 
                                 <?php
                                 //Fetching admin Name
@@ -205,15 +205,15 @@
                                 // 
                                 ?>
 
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php //echo $row1['fullName']; 
-                                                                                            ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin<?php //echo $row1['fullName']; 
+                                                                                                ?></span>
                                 <?php //} 
                                 ?>
                                 <img class="img-profile rounded-circle" src="<?= base_url(); ?>assets/img/profile.png">
                             </a>
 
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="profile.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -228,7 +228,7 @@
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                            </div>
+                            </div> -->
                         </li>
 
                     </ul>
