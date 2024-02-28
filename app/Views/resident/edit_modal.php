@@ -241,8 +241,8 @@
                                 </div>
 
                                 <div class="form-group col-xl-4">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Enter username" value="<?= $res->username; ?>">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Enter email" value="<?= $res->email; ?>">
                                 </div>
 
                                 <div class="form-group col-xl-4">
