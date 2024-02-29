@@ -64,12 +64,16 @@ class AuthenticationController extends Controller
 
             if ($this->validate($rules)) {
 
+                $purok = '1';
+                $household = '1';
                 $status = "Inactive";
                 $uniid = md5(str_shuffle('abcdefghijklmnopqrstuvwxyz' . time()));
                 $userdata = [
                     'lname' => $this->request->getVar('lname'),
                     'email' => $this->request->getVar('email'),
                     'password' => $this->request->getVar('password'),
+                    'purok_id' => $purok,
+                    'household_id' => $household,
                     'uniid' => $uniid,
                     'status' => $status,
                     'activation_date' => date("Y-m-d h:i:s")
@@ -78,7 +82,7 @@ class AuthenticationController extends Controller
                 if ($this->authModel->registerResident($userdata)) {
                     $to = $this->request->getVar('email');
                     $from = 'barangayrawanlala@gmail.com';
-                    $subject = 'Account Activation link - GoPHP';
+                    $subject = 'Account Activation  - BRMS';
                     $message = 'Hello Mr./Ms.  ' . " " . $this->request->getVar('lname') . ",<br><br>
                                 Congrats! Your account created successfully. Please click the link below to activate your account<br><br>"
                         . "<a href='" . base_url() . "authenticationcontroller/activate/" . $uniid . "' target='_blank'>Activate Now</a><br><br>Thanks,<br>Barangay Raw-an, Lala";
@@ -140,7 +144,8 @@ class AuthenticationController extends Controller
         $currTime = now();
         $registerTime = strtotime($regTime);
         $diffTime = (int)$currTime - (int)$registerTime;
-        if (3600 > $diffTime) {
+
+        if (3600 < $diffTime) {
             return true;
         } else {
             return false;
@@ -182,7 +187,7 @@ class AuthenticationController extends Controller
                         if ($userdata['status'] == 'Active') {
                             if ($userdata['user_type'] == 'Resident') {
                                 $this->session->set('logged_resident', $userdata['uniid']);
-                                return redirect()->to(base_url() . '/dashboardcontroller/dashboard');
+                                return redirect()->to(base_url() . 'LoggedResidentController/loggedResident');
                             } else {
                                 $this->session->setTempdata('error', 'Sorry, your account is not a Resident', 3);
                                 return redirect()->to(current_url());
@@ -239,7 +244,7 @@ class AuthenticationController extends Controller
                         if ($userdata['status'] == 'Active') {
                             if ($userdata['user_type'] == 'Admin') {
                                 $this->session->set('logged_admin', $userdata['uniid']);
-                                return redirect()->to(base_url() . '/dashboardcontroller/dashboard');
+                                return redirect()->to(base_url() . 'dashboardcontroller/dashboard');
                             } else {
                                 $this->session->setTempdata('error', 'Sorry, your account is not an Administrator', 3);
                                 return redirect()->to(current_url());

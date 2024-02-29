@@ -1,4 +1,4 @@
-<?= $this->extend("layout/loginBase"); ?>
+<?= $this->extend("layout/activation_message"); ?>
 
 <?= $this->section("content"); ?>
 

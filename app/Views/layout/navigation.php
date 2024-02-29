@@ -27,124 +27,100 @@
                 <div class="sidebar-brand-icon">
                     <div class="sidebar-brand-text mx-3">LMS</div>
                 </div>
-
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?= (current_url() == base_url('dashboardcontroller/dashboard')) ? 'active' : ''; ?>" id="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>dashboardcontroller/dashboard">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>Dashboard</span></a>
-            </li>
+            <?php if (session()->has("logged_admin")) { ?>
 
-            <!-- Divider -->
+                <!-- Dashboard -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item <?= (current_url() == base_url('dashboardcontroller/dashboard')) ? 'active' : ''; ?>" id="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>dashboardcontroller/dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Dashboard</span></a>
+                </li>
 
-            <hr class="sidebar-divider my-0">
+                <!-- Officials & Staff -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="dashboard.php">
+                        <i class="fa-solid fa-clipboard-user"></i>
+                        <span>Officials & Staff</span></a>
+                </li>
 
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="dashboard.php">
-                    <i class="fa-solid fa-clipboard-user"></i>
-                    <span>Officials & Staff</span></a>
-            </li>
+                <!-- Residents -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item <?= (current_url() == base_url('residentcontroller/resident')) ? 'active' : ''; ?>" id="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>residentcontroller/resident">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Residents</span></a>
+                </li>
 
-            <hr class="sidebar-divider my-0">
+                <!-- Purok -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item <?= (current_url() == base_url('purokcontroller/puroklist')) ? 'active' : ''; ?>" id="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>purokcontroller/puroklist">
+                        <i class="fa-solid fa-warehouse"></i>
+                        <span>Purok</span></a>
+                </li>
 
-            <li class="nav-item <?= (current_url() == base_url('residentcontroller/resident')) ? 'active' : ''; ?>" id="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>residentcontroller/resident">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Residents</span></a>
-            </li>
+                <!-- Household -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item <?= (current_url() == base_url('householdcontroller/householdlist')) ? 'active' : ''; ?> " id="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>householdcontroller/householdlist">
+                        <i class="fa-solid fa-house-flag"></i>
+                        <span>Household</span></a>
+                </li>
 
-            <hr class="sidebar-divider my-0">
+                <!-- Barangay Certificates -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="dashboard.php">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <span>Barangay Certificates</span></a>
+                </li>
 
-            <li class="nav-item <?= (current_url() == base_url('purokcontroller/puroklist')) ? 'active' : ''; ?>" id="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>purokcontroller/puroklist">
-                    <i class="fa-solid fa-warehouse"></i>
-                    <span>Purok</span></a>
-            </li>
+                <!-- Assistance -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="dashboard.php">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                        <span>Assistance</span></a>
+                </li>
 
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item <?= (current_url() == base_url('householdcontroller/householdlist')) ? 'active' : ''; ?> " id="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>householdcontroller/householdlist">
-                    <i class="fa-solid fa-house-flag"></i>
-                    <span>Household</span></a>
-            </li>
-
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="dashboard.php">
-                    <i class="fa-solid fa-newspaper"></i>
-                    <span>Barangay Certificates</span></a>
-            </li>
-
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="dashboard.php">
-                    <i class="fa-solid fa-hand-holding-hand"></i>
-                    <span>Assistance</span></a>
-            </li>
-
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Report Collapse Menu -->
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa-solid fa-scroll"></i>
-                    <span>Generate Report</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="" href="<?php echo base_url() ?>karyawan/laporan">Employee</a>
-                        <a class="collapse-item" href="<?php echo base_url() ?>pelanggan/laporan">Customer</a>
-                        <a class="collapse-item" href="<?php echo base_url() ?>transaksi/laporan">Transaction</a>
-                        <a class="collapse-item" href="<?php echo base_url() ?>pengeluaran/laporan">Expenditure</a>
+                <!-- Generate Report -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fa-solid fa-scroll"></i>
+                        <span>Generate Report</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" id="" href="<?php echo base_url() ?>karyawan/laporan">Employee</a>
+                            <a class="collapse-item" href="<?php echo base_url() ?>pelanggan/laporan">Customer</a>
+                            <a class="collapse-item" href="<?php echo base_url() ?>transaksi/laporan">Transaction</a>
+                            <a class="collapse-item" href="<?php echo base_url() ?>pengeluaran/laporan">Expenditure</a>
+                        </div>
                     </div>
+                </li>
+
+                <!-- Logout -->
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item <?= (current_url() == base_url('purokcontroller/puroklist')) ? 'active' : ''; ?>" id="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutAdminModal">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span></a>
+                </li>
+
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span></a>
-            </li>
-            <hr class="sidebar-divider my-0">
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="registration.php">
-                    <i class="fas fa-users"></i>
-                    <span>Signup/ Registration</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item" id="nav-item">
-                <a class="nav-link" href="login.php">
-                    <i class="fas fa-users"></i>
-                    <span>Login</span></a>
-            </li>
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-
-
-
+            <?php } ?>
 
         </ul>
-        <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -240,20 +216,20 @@
                 <!-- End of Topbar -->
 
                 <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal" aria-hidden="true">
+                <div class="modal fade" id="logoutAdminModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
+                                <h5 class="modal-title" id="deleteResidentLabel">Logout Confirmation</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="modal-body mx-3 mb-4">Are you sure you're going out?</div>
+                            <div class="modal-body mx-3 mb-4"> Are you sure you want to go out? </div>
                             <div class="modal-footer">
                                 <div class="text-center">
                                     <button class="flex-fill btn btn-secondary p-2 rounded-0" type="button" data-dismiss="modal">Cancel</button>
-                                    <a class="flex-fill btn btn-danger p-2 rounded-0" href="<?php echo base_url() . 'welcome/logout' ?>">Logout</a>
+                                    <a class="flex-fill btn btn-danger p-2 rounded-0" href="<?= base_url(); ?>LoggedAdminController/logoutAdmin">Logout</a>
                                 </div>
                             </div>
                         </div>

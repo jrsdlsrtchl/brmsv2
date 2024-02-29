@@ -1,8 +1,6 @@
 <?= $this->include("layout/header"); ?>
 
-<?= $this->include("layout/navigation"); ?>
-
-<?= $this->include("layout/preload"); ?>
+<?= $this->include("layout/resident_logged_navigation"); ?>
 
 <?= $this->renderSection("content"); ?>
 
