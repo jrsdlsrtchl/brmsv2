@@ -1,5 +1,25 @@
 <?= $this->extend("layout/base"); ?>
 
+<?= $this->section("user_login"); ?>
+<?php if (!empty($userdata) && isset($userdata['0']->lname)) {
+    $lastName = ucfirst($userdata['0']->lname);
+    echo " " . $lastName;
+} ?>
+<?= $this->endSection(); ?>
+
+
+<?= $this->section("profile"); ?>
+<?php if (!empty($userdata) && isset($userdata['0']->gender)) {
+    $gender = $userdata['0']->gender;
+    if ($gender == 'Male') { ?>
+        <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/male.png">
+    <?php } else { ?>
+        <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/female.png">
+    <?php }
+} else { ?>
+    <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/unknown.png">
+<?php } ?>
+<?= $this->endSection(); ?>
 
 <?= $this->section("content"); ?>
 
@@ -33,7 +53,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Populations</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"> <?= $population; ?> </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"> <?= $population ?> </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-users fa-2x text-gray-300"></i>

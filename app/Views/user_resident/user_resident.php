@@ -2,9 +2,22 @@
 
 <?= $this->section("user_login"); ?>
 <?php if (!empty($userdata)) {
-    echo ucfirst($userdata['0']->lname);
+    echo " " . ucfirst($userdata['0']->lname);
 } ?>
 <?= $this->endSection(""); ?>
+
+<?= $this->section("profile"); ?>
+<?php if (!empty($userdata)) {
+    ($userdata['0']->gender);
+}
+if ($userdata['0']->gender == 'Male') { ?>
+    <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/male.png">
+<?php } elseif ($userdata['0']->gender == 'Female') { ?>
+    <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/female.png">
+<?php } else { ?>
+    <img class="img-profile rounded-circle" width="45px" src="<?= base_url(); ?>assets/img/unknown.png">
+<?php } ?>
+<?= $this->endSection(); ?>
 
 <?= $this->section("content"); ?>
 

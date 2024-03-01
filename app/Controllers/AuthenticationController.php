@@ -143,14 +143,21 @@ class AuthenticationController extends Controller
     {
         $currTime = now();
         $registerTime = strtotime($regTime);
-        $diffTime = (int)$currTime - (int)$registerTime;
 
-        if (3600 < $diffTime) {
+        if ($currTime >= $registerTime) {
+            $diffTime = (int)$currTime - (int)$registerTime;
+        } else {
+
+            return false;
+        }
+
+        if ($diffTime < 30) {
             return true;
         } else {
             return false;
         }
     }
+
 
 
     public function login()
@@ -244,7 +251,7 @@ class AuthenticationController extends Controller
                         if ($userdata['status'] == 'Active') {
                             if ($userdata['user_type'] == 'Admin') {
                                 $this->session->set('logged_admin', $userdata['uniid']);
-                                return redirect()->to(base_url() . 'dashboardcontroller/dashboard');
+                                return redirect()->to(base_url() . 'LoggedAdminController/loggedAdmin');
                             } else {
                                 $this->session->setTempdata('error', 'Sorry, your account is not an Administrator', 3);
                                 return redirect()->to(current_url());

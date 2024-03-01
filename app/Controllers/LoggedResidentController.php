@@ -15,9 +15,6 @@ class LoggedResidentController extends Controller
 
     public function loggedResident()
     {
-        if (!session()->has('logged_resident')) {
-            return redirect()->to(base_url() . "authenticationcontroller/login");
-        }
 
         $uniid = session()->get('logged_resident');
         $data['userdata'] = $this->loginModel->getLoggedInUserData($uniid);

@@ -80,7 +80,7 @@ $page_session = \CodeIgniter\Config\Services::session();
                     <h1>Welcome to Admin! </h1>
                     <h3>Log-in Page</h3>
                     <br>
-                    <p> This login page for the Administrator of the barangay only. <br> Please refrain from logging in if you are not an admin. Thank you. </p>
+                    <p> This login page is for the Administrator of the barangay only. <br> Please refrain from logging in if you are not an admin. Thank you. </p>
                     <button class="btn transparent">
                         <a href="<?= base_url() ?>authenticationcontroller/register">Home</a>
                     </button>

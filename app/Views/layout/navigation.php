@@ -1,12 +1,7 @@
 <body id="page-top">
     <style type="text/css">
-        #nav-item {
-            padding-left: 10px;
-
-        }
-
         #nav-item:hover {
-            padding-left: 20px;
+            padding-left: 10px;
             background-color: #023e8a;
             transition: 0.5s;
         }
@@ -23,9 +18,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center my-3" href="<?php echo base_url() ?>dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-3" href="#">
                 <div class="sidebar-brand-icon">
-                    <div class="sidebar-brand-text mx-3">LMS</div>
+                    <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/img/rawan_logo.png" alt="" width="70px">
                 </div>
             </a>
 
@@ -136,81 +131,36 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-
-
-                    <?php //if ($_SESSION['aid']) : 
-                    ?>
-
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav mr-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
+                        <!-- Web Page Title -->
+                        <li class="nav-item mx-1 d-none d-md-inline">
+                            <a class="nav-link" href="#">
+                                <div class="text-lg text-dark font-weight-bold">Brgy. Raw-an Management System</div>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </li>
 
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="<?= base_url() . 'residentcontroller/resident' ?>" id="" role="button">
-
-                                <?php
-                                //Fetching admin Name
-                                // $adid = $_SESSION['aid'];
-                                // $ret1 = mysqli_query($con, "select fullName from tbluserregistration where ID='$adid'");
-                                // while ($row1 = mysqli_fetch_array($ret1)) {
-
-                                // 
-                                ?>
-
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin<?php //echo $row1['fullName']; 
-                                                                                                ?></span>
-                                <?php //} 
-                                ?>
-                                <img class="img-profile rounded-circle" src="<?= base_url(); ?>assets/img/profile.png">
+                        <li class="nav-item mx-1 d-md-none">
+                            <a class="nav-link" href="#">
+                                <div class="text-lg text-dark font-weight-bold">BRMS</div>
                             </a>
-
-                            <!-- Dropdown - User Information -->
-                            <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profile.php">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="change-password.php">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Change Password
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div> -->
                         </li>
 
                     </ul>
 
-                    <?php //endif; 
-                    ?>
+                    <a class="nav-link" href="#">
+                        <div class="font-weight-bold text-dark">
+                            <div class="d-none d-sm-inline">Admin - </div>
+                            <?= $this->renderSection("user_login"); ?>
+                        </div>
+                    </a>
+
+                    <div class="topbar-divider ml-0 mr-0"></div>
+
+                    <a class="nav-link" href="#">
+                        <?= $this->renderSection("profile"); ?>
+                    </a>
 
                 </nav>
                 <!-- End of Topbar -->

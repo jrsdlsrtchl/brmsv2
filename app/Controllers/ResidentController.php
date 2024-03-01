@@ -18,7 +18,9 @@ class ResidentController extends Controller
 
     public function resident()
     {
-
+        if (!(session()->has('logged_admin'))) {
+            return redirect()->to(base_url() . "authenticationcontroller/login");
+        }
 
         $data = [];
         $data['version'] = $this->version;

@@ -1,12 +1,7 @@
 <body id="page-top">
     <style type="text/css">
-        #nav-item {
-            padding-left: 10px;
-
-        }
-
         #nav-item:hover {
-            padding-left: 20px;
+            padding-left: 10px;
             background-color: #25a244;
             transition: 0.5s;
         }
@@ -117,13 +112,16 @@
 
                     <a class="nav-link" href="#">
                         <div class="font-weight-bold text-dark">
+                            <div class="d-none d-sm-inline">Resident - </div>
                             <?= $this->renderSection("user_login"); ?>
                         </div>
                     </a>
 
-                    <div class="topbar-divider ml-0"></div>
+                    <div class="topbar-divider ml-0 mr-0"></div>
 
-                    <div class="font-weight-bold text-dark mr-4">Resident</div>
+                    <a class="nav-link" href="#">
+                        <?= $this->renderSection("profile"); ?>
+                    </a>
 
                 </nav>
                 <!-- End of Topbar -->
